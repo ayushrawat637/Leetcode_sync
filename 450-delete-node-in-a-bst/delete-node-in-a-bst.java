@@ -27,22 +27,20 @@ class Solution {
             if(root.left==null && root.right==null) 
             return null;
 
-            else if(root.left==null) {
+            if(root.left==null) {
             TreeNode temp = root.right;
             return temp;
             }
 
-            else if(root.right==null) {
+            if(root.right==null) {
             TreeNode temp = root.left;
             return temp;
             }
 
-            else {
-                TreeNode temp = root.right;
+            TreeNode temp = root.right;
             while(temp.left!=null)     temp = temp.left;
             root.val = temp.val;
             root.right = deleteNode(root.right,temp.val);
-            }
         }
         return root;
     }
