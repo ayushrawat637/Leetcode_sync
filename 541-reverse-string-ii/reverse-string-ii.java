@@ -6,8 +6,10 @@ class Solution {
             int right = Math.min(i+k-1, a.length-1);
             while(left<right) {
                 char temp = a[left];
-                a[left++] = a[right];
-                a[right--] = temp;
+                a[left] = a[right];
+                a[right] = temp;
+                left++;
+                right--;
             }
         }
         return new String(a);
